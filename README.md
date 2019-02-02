@@ -8,7 +8,7 @@
 
 Basic Model-View-Controller architecture with extended functionality in TypeScript.
 
-Example project here link.
+Example project here https://github.com/planet-221b/pureMVC-example.
 
 ## Added functionalities.
 
