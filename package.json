@@ -1,6 +1,6 @@
 {
   "name": "@planet221b/pure-mvc",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "PureMVC is a lightweight framework for creating applications based upon the classic Model-View-Controller design meta-pattern",
   "main": "lib/index.js",
   "scripts": {
@@ -32,7 +32,7 @@
     "webpack-cli": "^3.0.8",
     "webpack-merge": "^4.1.3"
   },
-  "author": "Tigran Balayan",
+  "author": "RollinSafary",
   "license": "MIT",
   "dependencies": {
     "eventemitter3": "^3.0.1"

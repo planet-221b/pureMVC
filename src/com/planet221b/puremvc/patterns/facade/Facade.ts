@@ -1,7 +1,3 @@
-/**
- * Created by sargis on 7/4/17.
- */
-
 import Controller from '../../core/Controller';
 import Model from '../../core/Model';
 import View from '../../core/View';
@@ -83,15 +79,15 @@ export default class Facade {
     return this.controller.hasCommand(notificationName, commandClassRef);
   }
 
-  public registerProxy<T extends Proxy>(proxy: T): void {
-    this.model.registerProxy<T>(proxy);
+  public registerProxy<M, T extends Proxy<M>>(proxy: T): void {
+    this.model.registerProxy<M, T>(proxy);
   }
 
-  public retrieveProxy<T extends Proxy>(proxyName: string): T {
+  public retrieveProxy<M, T extends Proxy<M>>(proxyName: string): T {
     return this.model.retrieveProxy(proxyName);
   }
 
-  public removeProxy<T extends Proxy>(proxyName: string): T {
+  public removeProxy<M, T extends Proxy<M>>(proxyName: string): T {
     if (this.model) {
       return this.model.removeProxy(proxyName);
     }
@@ -102,19 +98,19 @@ export default class Facade {
     return this.model.hasProxy(proxyName);
   }
 
-  public registerMediator<T extends Mediator>(mediator: T): void {
+  public registerMediator<V, T extends Mediator<V>>(mediator: T): void {
     this.view.registerMediator(mediator);
   }
 
-  public updateMediator<T extends Mediator>(mediator: T): void {
+  public updateMediator<V, T extends Mediator<V>>(mediator: T): void {
     this.view.updateMediator(mediator);
   }
 
-  public retrieveMediator<T extends Mediator>(mediatorName: string): T {
+  public retrieveMediator<V, T extends Mediator<V>>(mediatorName: string): T {
     return this.view.retrieveMediator(mediatorName);
   }
 
-  public removeMediator<T extends Mediator>(mediatorName: string): T {
+  public removeMediator<V, T extends Mediator<V>>(mediatorName: string): T {
     return this.view.removeMediator(mediatorName);
   }
 

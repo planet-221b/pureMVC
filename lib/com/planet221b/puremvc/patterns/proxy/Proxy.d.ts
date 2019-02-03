@@ -1,14 +1,10 @@
-/**
- * Created by sargis on 7/4/17.
- */
 import Notifier from '../observer/Notifier';
-export default class Proxy extends Notifier {
+export default class Proxy<M> extends Notifier {
     private proxyName;
     private data;
-    constructor(proxyName: string, data: any);
+    constructor(proxyName: string, data: M);
     getProxyName(): string;
-    setData(data: any): void;
-    getData(): any;
     onRegister(): void;
     onRemove(): void;
+    vo: M;
 }

@@ -22,7 +22,7 @@ export default class View {
 
   private multitonKey: string;
   private mediatorMap: {
-    [key: string]: { mediator: Mediator; interests: string[] };
+    [key: string]: { mediator: Mediator<any>; interests: string[] };
   } = {};
   private eventEmitter: EventEmitter = new EventEmitter();
 
@@ -54,7 +54,7 @@ export default class View {
     this.eventEmitter.emit(notificationName, notificationName, ...args);
   }
 
-  public registerMediator(mediator: Mediator): void {
+  public registerMediator<V>(mediator: Mediator<V>): void {
     if (this.mediatorMap[mediator.getMediatorName()]) {
       return;
     }
@@ -85,7 +85,7 @@ export default class View {
     mediator.onRegister();
   }
 
-  public updateMediator(mediator: Mediator): void {
+  public updateMediator<V>(mediator: Mediator<V>): void {
     if (!this.mediatorMap[mediator.getMediatorName()]) {
       return;
     }
@@ -113,11 +113,11 @@ export default class View {
     this.mediatorMap[mediator.getMediatorName()].interests = [...newInterests];
   }
 
-  public retrieveMediator<T extends Mediator>(mediatorName: string): T {
+  public retrieveMediator<V, T extends Mediator<V>>(mediatorName: string): T {
     return this.mediatorMap[mediatorName].mediator as T;
   }
 
-  public removeMediator<T extends Mediator>(mediatorName: string): T {
+  public removeMediator<V, T extends Mediator<V>>(mediatorName: string): T {
     if (!this.mediatorMap[mediatorName]) {
       return null;
     }

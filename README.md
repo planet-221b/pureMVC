@@ -2,7 +2,7 @@
 
 ## how to install
 
-`npm i @planet221b/pure-mvc`
+`npm i @planet221b/pure-mvc@latest`
 
 ## About
 

@@ -6,9 +6,9 @@ export default class Model {
     private multitonKey;
     private proxyMap;
     constructor(key: string);
-    registerProxy<T extends Proxy>(proxy: T): void;
-    retrieveProxy<T extends Proxy>(proxyName: string): T;
+    registerProxy<M, T extends Proxy<M>>(proxy: T): void;
+    retrieveProxy<M, T extends Proxy<M>>(proxyName: string): T;
     hasProxy(proxyName: string): boolean;
-    removeProxy<T extends Proxy>(proxyName: string): T;
+    removeProxy<M, T extends Proxy<M>>(proxyName: string): T;
     protected initializeModel(): void;
 }

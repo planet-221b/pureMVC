@@ -1,34 +1,28 @@
-/**
- * Created by sargis on 7/4/17.
- */
 import Notifier from '../observer/Notifier';
 
-export default class Proxy extends Notifier {
+export default class Proxy<M> extends Notifier {
   private proxyName: string;
-  private data: string;
-  constructor(proxyName: string, data: any) {
+  private data: M;
+  constructor(proxyName: string, data: M) {
     super();
     this.proxyName = proxyName || NAME;
-    if (data) {
-      this.setData(data);
-    }
+    this.data = data;
   }
 
   public getProxyName(): string {
     return this.proxyName;
   }
 
-  public setData(data: any): void {
-    this.data = data;
-  }
-
-  public getData(): any {
-    return this.data;
-  }
-
   public onRegister(): void {}
 
   public onRemove(): void {}
+
+  get vo(): M {
+    return this.data;
+  }
+  set vo(data: M) {
+    this.data = data;
+  }
 }
 
 const NAME: string = 'Proxy';

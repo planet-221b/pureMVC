@@ -1,6 +1,3 @@
-/**
- * Created by sargis on 7/4/17.
- */
 import Facade from '../facade/Facade';
 
 export default class Notifier {
