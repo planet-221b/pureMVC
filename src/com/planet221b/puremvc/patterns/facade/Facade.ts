@@ -58,6 +58,12 @@ export default class Facade {
   ): void {
     this.controller.registerCommand<T>(notificationName, commandClassRef);
   }
+  public registerCommandOnce<T extends SimpleCommand>(
+    notificationName: string,
+    commandClassRef: new () => T,
+  ): void {
+    this.controller.registerCommandOnce<T>(notificationName, commandClassRef);
+  }
 
   public removeCommands(notificationName: string): void {
     this.controller.removeCommands(notificationName);

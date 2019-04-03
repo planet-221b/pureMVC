@@ -43,6 +43,21 @@ export default class Controller {
     }
     this.commandMap[notificationName].push(commandClassRef);
   }
+  public registerCommandOnce<T extends SimpleCommand>(
+    notificationName: string,
+    commandClassRef: new () => T,
+  ): void {
+    if (!this.commandMap[notificationName]) {
+      this.commandMap[notificationName] = [];
+      this.view.registerObserver(notificationName, this.executeCommand, this);
+      this.view.registerObserver(
+        notificationName,
+        this.removeCommand.bind(this, notificationName, commandClassRef),
+        this,
+      );
+    }
+    this.commandMap[notificationName].push(commandClassRef);
+  }
 
   public hasCommand<T extends SimpleCommand>(
     notificationName: string,

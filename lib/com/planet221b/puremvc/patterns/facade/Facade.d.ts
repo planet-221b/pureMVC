@@ -15,6 +15,7 @@ export default class Facade {
     constructor(key: string);
     initializeFacade(): void;
     registerCommand<T extends SimpleCommand>(notificationName: string, commandClassRef: new () => T): void;
+    registerCommandOnce<T extends SimpleCommand>(notificationName: string, commandClassRef: new () => T): void;
     removeCommands(notificationName: string): void;
     removeCommand<T extends SimpleCommand>(notificationName: string, commandClassRef: new () => T): void;
     hasAnyCommand(notificationName: string): boolean;

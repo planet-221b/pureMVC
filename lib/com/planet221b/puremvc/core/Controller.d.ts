@@ -8,6 +8,7 @@ export default class Controller {
     private view;
     constructor(key: string);
     registerCommand<T extends SimpleCommand>(notificationName: string, commandClassRef: new () => T): void;
+    registerCommandOnce<T extends SimpleCommand>(notificationName: string, commandClassRef: new () => T): void;
     hasCommand<T extends SimpleCommand>(notificationName: string, commandClassRef: new () => T): boolean;
     hasAnyCommand(notificationName: string): boolean;
     removeCommands(notificationName: string): void;
