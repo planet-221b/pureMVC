@@ -15,6 +15,7 @@ Example project here https://github.com/planet-221b/pureMVC-example.
 1. mediators have `sleap()` & `wake()` functions, which will give you ability to stop and start mediator from listening notifications dynamically.
 2. mediators have `subscribeToNotifications()` and `unsubscribeToNotification` functions, which are giving ability to dynamically subscribe and unsubscribe listening notifications. `listenNotificationInterests` now is a getter not a function.
 3. same notification can call multiple commands, so added functions to remove commands from notification's call queue. To remove single command from call queue call `removeCommand(notification, command)` on facade, and to remove all commands from notification's queue call `removeCommands(notification)` on facade.
+4. to register command for signle use `registerCommandOnce(notification, command)` on facade. So it will called only once, then it will be removed from commands queue.
 
 ## ToDo
 
